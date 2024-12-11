@@ -3,7 +3,7 @@
 export default function NewDocs() {
     return (
         <main>
-            <h1>about</h1>
+            <h1>Hats</h1>
         </main>
     );
 }
