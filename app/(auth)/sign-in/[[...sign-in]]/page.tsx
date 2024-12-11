@@ -1,6 +1,6 @@
 import { useSignIn } from '@clerk/clerk-expo';
 import { Link, useRouter } from 'expo-router';
-import { Text, TextInput, Button, View, StyleSheet, ActivityIndicator } from 'react-native';
+import { Text, TextInput, Button, View, StyleSheet } from 'react-native';
 import React from 'react';
 
 export default function Page() {
@@ -44,15 +44,6 @@ export default function Page() {
       console.error("Error during sign-in:", JSON.stringify(err, null, 2));
     }
   }, [isLoaded, emailAddress, password]);
-
-  if (!isLoaded) {
-    return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#4CAF50" />
-        <Text>Loading Clerk...</Text>
-      </View>
-    );
-  }
 
   return (
     <View style={styles.container}>
@@ -126,11 +117,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#4CAF50',
     fontWeight: 'bold',
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f9f9f9',
   },
 });

@@ -15,7 +15,6 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
 
-  const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
@@ -30,6 +29,9 @@ export default function RootLayout() {
   if (!loaded) {
     return null;
   }
+
+  const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!
+
 
   return (
     <ClerkProvider publishableKey={publishableKey}>
